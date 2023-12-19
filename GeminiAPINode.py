@@ -57,12 +57,12 @@ class Gemini_API_Zho:
                 img = Image.open(image)
                     #if prompt=None:
                         #response = model.generate_content(image)
-                    if stream:
-                        response = model.generate_content([prompt, img], stream=True)
-                        textoutput = "\n".join([chunk.text for chunk in response])
-                    else:
-                        response = model.generate_content([prompt, img])
-                        textoutput = response.text
+                if stream:
+                    response = model.generate_content([prompt, img], stream=True)
+                    textoutput = "\n".join([chunk.text for chunk in response])
+                else:
+                    response = model.generate_content([prompt, img])
+                    textoutput = response.text
         
         return (textoutput,)
 
