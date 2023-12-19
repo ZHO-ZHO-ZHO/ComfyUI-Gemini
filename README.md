@@ -1,2 +1,2 @@
-# ComfyUI-Gemini（WIP）
+# ComfyUI Gemini（WIP）
 Use Gemini in ComfyUI
