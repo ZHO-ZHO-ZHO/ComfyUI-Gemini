@@ -51,8 +51,7 @@ class Gemini_API_Zho:
             if image == None:
                 raise ValueError("gemini-pro-vision needs image")
             else:
-                image_squeezed = image.squeeze(0)
-                image_pil = transforms.ToPILImage()(image_squeezed)
+                image_pil = transforms.ToPILImage()(image)
                 buf = io.BytesIO()
                 image_pil.save(buf, format='JPEG')
                 buf.seek(0)
