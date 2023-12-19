@@ -34,10 +34,12 @@ class Gemini_API_Zho:
         model = genai.GenerativeModel(model_name)
         if stream:
             response = model.generate_content(prompt, stream=True)
-            return "\n".join([chunk.text for chunk in response])
+            textoutput = "\n".join([chunk.text for chunk in response])
         else:
             response = model.generate_content(prompt)
-            return response.text
+            textoutput = response.text
+        
+        return (textoutput,)
 
 
 # DisplayText node is forked from AlekPet，thanks to AlekPet！
