@@ -28,7 +28,7 @@ class Gemini_API_Zho:
 
     CATEGORY = "Zho模块组/✨Gemini"
 
-    def generate_content(self, prompt, model_name, stream, api_key, image):
+    def generate_content(self, prompt, model_name, stream, api_key, image=None):
         if api_key:
             self.api_key = api_key
             genai.configure(api_key=self.api_key)
