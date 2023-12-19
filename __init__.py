@@ -36,6 +36,6 @@ if result.left_only or result.diff_files:
 from .GeminiAPINode import NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS
 
 # Combine the dictionaries
-NODE_CLASS_MAPPINGS = {**NODE_CLASS_MAPPINGS_G}
+#NODE_CLASS_MAPPINGS = {**NODE_CLASS_MAPPINGS_G}
 
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']
