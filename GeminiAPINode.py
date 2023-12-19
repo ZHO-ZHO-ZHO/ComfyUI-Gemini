@@ -13,7 +13,7 @@ class Gemini_API_Zho:
         return {
             "required": {
                 "prompt": ("STRING", {"default": "What is the meaning of life?", "multiline": True}),
-                "model_name": ("STRING", {"default": "gemini-pro", "options": ["gemini-pro", "gemini-pro-vision"]}),
+                "model_name": (["gemini-pro", "gemini-pro-vision"],),
                 "stream": ("BOOLEAN", {"default": False}),
                 "api_key": ("STRING", {"default": ""})  # Add api_key as an input
             },
@@ -36,17 +36,33 @@ class Gemini_API_Zho:
             raise ValueError("API key is required")
 
         model = genai.GenerativeModel(model_name)
+
+        if model_name == 'gemini-pro'
+            if stream:
+                response = model.generate_content(prompt, stream=True)
+                textoutput = "\n".join([chunk.text for chunk in response])
+            else:
+                response = model.generate_content(prompt)
+                textoutput = response.text
         
-        input_data = [prompt]
-        if model_name == 'gemini-pro-vision' and image is not None:
-            input_data.append(image)
-        
-        if stream:
-            response = model.generate_content(input_data, stream=True)
-            textoutput = "\n".join([chunk.text for chunk in response])
-        else:
-            response = model.generate_content(input_data)
-            textoutput = response.text
+        if model_name == 'gemini-pro-vision'
+            if image=None:
+                if stream:
+                    response = model.generate_content(prompt, stream=True)
+                    textoutput = "\n".join([chunk.text for chunk in response])
+                else:
+                    response = model.generate_content(prompt)
+                    textoutput = response.text
+            else:
+                img = Image.open(image)
+                    #if prompt=None:
+                        #response = model.generate_content(image)
+                    if stream:
+                        response = model.generate_content([prompt, img], stream=True)
+                        textoutput = "\n".join([chunk.text for chunk in response])
+                    else:
+                        response = model.generate_content([prompt, img])
+                        textoutput = response.text
         
         return (textoutput,)
 
