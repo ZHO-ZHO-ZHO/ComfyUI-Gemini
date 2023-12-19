@@ -1,4 +1,5 @@
 import google.generativeai as genai
+from PIL import Image
 
 class Gemini_API_Zho:
 
@@ -12,9 +13,12 @@ class Gemini_API_Zho:
         return {
             "required": {
                 "prompt": ("STRING", {"default": "What is the meaning of life?", "multiline": True}),
-                "model_name": ("STRING", {"default": "gemini-pro"}),
+                "model_name": ("STRING", {"default": "gemini-pro", "options": ["gemini-pro", "gemini-pro-vision"]}),
                 "stream": ("BOOLEAN", {"default": False}),
                 "api_key": ("STRING", {"default": ""})  # Add api_key as an input
+            },
+            "optional": {
+                "image": ("IMAGE",),  
             }
         }
 
@@ -24,7 +28,7 @@ class Gemini_API_Zho:
 
     CATEGORY = "Zho模块组/✨Gemini"
 
-    def generate_content(self, prompt, model_name, stream, api_key):
+    def generate_content(self, prompt, model_name, stream, api_key, image):
         if api_key:
             self.api_key = api_key
             genai.configure(api_key=self.api_key)
@@ -32,11 +36,16 @@ class Gemini_API_Zho:
             raise ValueError("API key is required")
 
         model = genai.GenerativeModel(model_name)
+        
+        input_data = [prompt]
+        if model_name == 'gemini-pro-vision' and image is not None:
+            input_data.append(image)
+        
         if stream:
-            response = model.generate_content(prompt, stream=True)
+            response = model.generate_content(input_data, stream=True)
             textoutput = "\n".join([chunk.text for chunk in response])
         else:
-            response = model.generate_content(prompt)
+            response = model.generate_content(input_data)
             textoutput = response.text
         
         return (textoutput,)
