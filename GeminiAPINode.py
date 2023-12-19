@@ -1,6 +1,6 @@
 import google.generativeai as genai
 
-class GeminiAPINode:
+class Gemini_API_Zho:
 
     def __init__(self, api_key=None):
         self.api_key = api_key
@@ -11,7 +11,7 @@ class GeminiAPINode:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "prompt": ("STRING", {"default": "Enter your prompt", "multiline": True}),
+                "prompt": ("STRING", {"default": "What is the meaning of life?", "multiline": True}),
                 "model_name": ("STRING", {"default": "gemini-pro"}),
                 "stream": ("BOOLEAN", {"default": False}),
                 "api_key": ("STRING", {"default": ""})  # Add api_key as an input
@@ -19,10 +19,10 @@ class GeminiAPINode:
         }
 
     RETURN_TYPES = ("STRING",)
-
+    RETURN_NAMES = ("text",)
     FUNCTION = "generate_content"
 
-    CATEGORY = "Gemini API"
+    CATEGORY = "Zho模块组/✨Gemini"
 
     def generate_content(self, prompt, model_name, stream, api_key):
         if api_key:
@@ -40,10 +40,38 @@ class GeminiAPINode:
             return response.text
 
 
+# DisplayText node is forked from AlekPet，thanks to AlekPet！
+class DisplayText_Zho:
+    def __init__(self):
+        pass
+    
+    @classmethod
+    def INPUT_TYPES(s):
+
+        return {
+            "required": {        
+                "text": ("STRING", {"forceInput": True}),     
+                },
+            "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
+            }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("text",)
+    OUTPUT_NODE = True
+    FUNCTION = "display_text"
+
+    CATEGORY = "Zho模块组/✨Gemini"
+
+    def display_text(self, text, prompt=None, extra_pnginfo=None):
+        return {"ui": {"string": [text,]}, "result": (text,)}
+
+
 NODE_CLASS_MAPPINGS = {
-    "GeminiAPINode": GeminiAPINode
+    "Gemini_API_Zho": Gemini_API_Zho,
+    "DisplayText_Zho": DisplayText_Zho
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "GeminiAPINode": "Gemini API Node"
+    "Gemini_API_Zho": "✨ Gemini_API_Zho",
+    "DisplayText_Zho": "✨DisplayText_Zho"
 }
