@@ -74,6 +74,6 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Gemini_API_Zho": "✨ Gemini_API_Zho",
+    "Gemini_API_Zho": "✨Gemini_API_Zho",
     "DisplayText_Zho": "✨DisplayText_Zho"
 }
