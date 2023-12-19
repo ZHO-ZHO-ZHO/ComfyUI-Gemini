@@ -46,7 +46,7 @@ class Gemini_API_Zho:
                 textoutput = response.text
         
         if model_name == 'gemini-pro-vision':
-            if image=None:
+            if image == None:
                 if stream:
                     response = model.generate_content(prompt, stream=True)
                     textoutput = "\n".join([chunk.text for chunk in response])
