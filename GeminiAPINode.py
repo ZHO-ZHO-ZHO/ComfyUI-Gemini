@@ -37,7 +37,7 @@ class Gemini_API_Zho:
 
         model = genai.GenerativeModel(model_name)
 
-        if model_name == 'gemini-pro'
+        if model_name == 'gemini-pro':
             if stream:
                 response = model.generate_content(prompt, stream=True)
                 textoutput = "\n".join([chunk.text for chunk in response])
@@ -45,7 +45,7 @@ class Gemini_API_Zho:
                 response = model.generate_content(prompt)
                 textoutput = response.text
         
-        if model_name == 'gemini-pro-vision'
+        if model_name == 'gemini-pro-vision':
             if image=None:
                 if stream:
                     response = model.generate_content(prompt, stream=True)
