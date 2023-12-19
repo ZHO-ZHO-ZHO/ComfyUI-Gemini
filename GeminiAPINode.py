@@ -51,9 +51,12 @@ class Gemini_API_Zho:
             if image == None:
                 raise ValueError("gemini-pro-vision needs image")
             else:
-                img = image
-                    #if prompt=None:
-                        #response = model.generate_content(image)
+                image_pil = transforms.ToPILImage()(image)
+                buf = io.BytesIO()
+                image_pil.save(buf, format='JPEG')
+                buf.seek(0)
+                img = Image.open(buf)
+
                 if stream:
                     response = model.generate_content([prompt, img], stream=True)
                     textoutput = "\n".join([chunk.text for chunk in response])
