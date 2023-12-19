@@ -53,7 +53,7 @@ class Gemini_API_Zho:
             else:
                 image_pil = transforms.ToPILImage()(image)
                 buf = io.BytesIO()
-                image_pil.save(buf, format='JPEG')
+                image_pil.save(buf, format='PNG')
                 buf.seek(0)
                 img = Image.open(buf)
 
