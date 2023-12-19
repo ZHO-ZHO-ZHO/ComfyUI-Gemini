@@ -1,3 +1,5 @@
+import io
+import torchvision.transforms as transforms
 import google.generativeai as genai
 from PIL import Image
 
@@ -47,14 +49,9 @@ class Gemini_API_Zho:
         
         if model_name == 'gemini-pro-vision':
             if image == None:
-                if stream:
-                    response = model.generate_content(prompt, stream=True)
-                    textoutput = "\n".join([chunk.text for chunk in response])
-                else:
-                    response = model.generate_content(prompt)
-                    textoutput = response.text
+                raise ValueError("gemini-pro-vision needs image")
             else:
-                img = Image.open(image)
+                img = image
                     #if prompt=None:
                         #response = model.generate_content(image)
                 if stream:
