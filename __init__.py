@@ -33,9 +33,9 @@ if result.left_only or result.diff_files:
         shutil.copy(src_file, dst_file)
 
 
-from .GeminiAPINode import NODE_CLASS_MAPPINGS as NODE_CLASS_MAPPINGS_G
+from .GeminiAPINode import NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS
 
 # Combine the dictionaries
 NODE_CLASS_MAPPINGS = {**NODE_CLASS_MAPPINGS_G}
 
-__all__ = ['NODE_CLASS_MAPPINGS']
+__all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']
