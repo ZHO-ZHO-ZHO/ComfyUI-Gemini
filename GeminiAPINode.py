@@ -246,6 +246,34 @@ class Gemini_API_S_Vsion_ImgURL_Zho:
         return (textoutput,)
 
 
+class ConcatText_Zho:
+
+    def __init__(self):
+        pass
+    
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "text_1": ("STRING", {"multiline": True}),
+                "text_2": ("STRING", {"multiline": True}),
+                # 可以根据需要添加更多的文本输入
+            },
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("text",)
+
+    FUNCTION = "concat_texts"
+
+    CATEGORY = "Zho模块组/✨Gemini"
+
+    def concat_texts(self, **kwargs):
+        # 将所有输入的文本合并为一个以逗号分隔的字符串
+        texts = [kwargs[key] for key in kwargs if key.startswith('text')]
+        combined_text = ', '.join(texts)
+        return (combined_text,)
+
 
 # DisplayText node is forked from AlekPet，thanks to AlekPet！
 class DisplayText_Zho:
@@ -278,6 +306,7 @@ NODE_CLASS_MAPPINGS = {
     "Gemini_API_Vsion_ImgURL_Zho": Gemini_API_Vsion_ImgURL_Zho,
     "Gemini_API_S_Zho": Gemini_API_S_Zho,
     "Gemini_API_S_Vsion_ImgURL_Zho": Gemini_API_S_Vsion_ImgURL_Zho,
+    "ConcatText_Zho": ConcatText_Zho,
     "DisplayText_Zho": DisplayText_Zho
 }
 
@@ -286,5 +315,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "Gemini_API_Vsion_ImgURL_Zho": "✨Gemini_API_Vsion_ImgURL_Zho",
     "Gemini_API_S_Zho": "㊙️Gemini_Zho",
     "Gemini_API_S_Vsion_ImgURL_Zho": "㊙️Gemini_Vsion_ImgURL_Zho",
+    "ConcatText_Zho": "✨ConcatText_Zho",
     "DisplayText_Zho": "✨DisplayText_Zho"
 }
