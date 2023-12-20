@@ -1,10 +1,23 @@
 import io
+import json
 import requests
 import torch
 import google.generativeai as genai
 from io import BytesIO
 from PIL import Image
-from .Gemini_API_Key import get_gemini_api_key 
+
+p = os.path.dirname(os.path.realpath(__file__))
+
+def get_gemini_api_key():
+    try:
+        config_path = os.path.join(p, 'config.json')
+        with open(config_path, 'r') as f:  
+            config = json.load(f)
+        api_key = config["GEMINI_API_KEY"]
+    except:
+        print("出错啦 Error: API key is required")
+        return ""
+    return api_key
 
 class Gemini_API_Zho:
 
@@ -133,7 +146,7 @@ class Gemini_API_Vsion_ImgURL_Zho:
 class Gemini_API_S_Zho:
 
     def __init__(self):
-        self.api_key = get_gemini_api_key()  # 从Gemini_API_Key.py获取API密钥
+        self.api_key = get_gemini_api_key()
         if self.api_key is not None:
             genai.configure(api_key=self.api_key)
 
@@ -203,7 +216,7 @@ class Gemini_API_S_Zho:
 class Gemini_API_S_Vsion_ImgURL_Zho:
 
     def __init__(self):
-        self.api_key = get_gemini_api_key()  # 从Gemini_API_Key.py获取API密钥
+        self.api_key = get_gemini_api_key()
         if self.api_key is not None:
             genai.configure(api_key=self.api_key)
 
