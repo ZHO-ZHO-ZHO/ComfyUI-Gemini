@@ -14,7 +14,7 @@
 
 - 目前 Gemini API 免费开放，你可以在这里申请一个自己的 API Key：[Gemini API 申请](https://makersuite.google.com/app/apikey)
 
-- 版本：V1.0
+- 版本：V1.1
 
 ## 详细说明 | Features
 
@@ -58,9 +58,9 @@
 
 ## 使用方法 | How to use
 
-- 首先需要申请一个自己的 Gemini_API_Key：[Gemini API 申请](https://makersuite.google.com/app/apikey)
+- 首先需要申请一个自己的 Gemini_API_Key：[Gemini API 申请](https://makersuite.google.com/app/apikey) 
 
-- 选择隐式节点㊙️（推荐）：将 Gemini_API_Key 添加到 `Gemini_API_Key.py` 文件中，运行时会自动加载
+- 选择隐式节点㊙️（推荐）：将你的 Gemini_API_Key 添加到 `config.json` 文件中，运行时会自动加载
 
 - 选择显示节点✨：直接将 Gemini_API_Key 输入到节点的 api_key 中（注意：请勿将包含此节点的工作流分享出去，以免泄露你的 API Key）
 
@@ -79,7 +79,7 @@
 
 ## 工作流 | Workflow
 
-### V1.0 工作流（隐式）
+### V1.1 工作流（隐式）
 
 [Gemini-pro【Zho】](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/blob/main/Gemini_workflows/Gemini-pro%E3%80%90Zho%E3%80%91.json) 
 
@@ -93,6 +93,10 @@
 
 
 ## 更新日志 | Changelog
+
+20231221
+
+- V1.1版：修改 API KEY 的加载方式为自动添加 config.json ，将 API KEY 写入即可
 
 20231220
 
