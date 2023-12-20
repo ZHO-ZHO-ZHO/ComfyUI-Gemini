@@ -29,7 +29,13 @@ class Gemini_API_Zho:
     FUNCTION = "generate_content"
 
     CATEGORY = "Zho模块组/✨Gemini"
-    
+
+    def tensor_to_image(self, tensor):
+        tensor = tensor.squeeze().mul(255).byte()  # 转换为0-255范围的字节数据
+        tensor = tensor.permute(1, 2, 0)  # 从C x H x W转换为H x W x C
+        image = Image.fromarray(tensor.cpu().numpy(), mode='RGB')
+        return image
+
     def generate_content(self, prompt, model_name, stream, api_key, image=None):
         if api_key:
             self.api_key = api_key
