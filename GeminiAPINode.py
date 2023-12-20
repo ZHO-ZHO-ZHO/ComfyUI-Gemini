@@ -1,4 +1,5 @@
 import io
+from io import BytesIO
 import torchvision.transforms as transforms
 import google.generativeai as genai
 from PIL import Image
