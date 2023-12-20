@@ -34,16 +34,16 @@ class Gemini_API_Zho:
     CATEGORY = "Zho模块组/✨Gemini"
 
     def tensor_to_image(self, tensor):
-    # 确保张量是在CPU上
-    tensor = tensor.cpu()
+        # 确保张量是在CPU上
+        tensor = tensor.cpu()
     
-    # 将张量数据转换为0-255范围并转换为整数
-    # 这里假设张量已经是H x W x C格式
-    image_np = tensor.squeeze().mul(255).clamp(0, 255).byte().numpy()
+        # 将张量数据转换为0-255范围并转换为整数
+        # 这里假设张量已经是H x W x C格式
+        image_np = tensor.squeeze().mul(255).clamp(0, 255).byte().numpy()
     
-    # 创建PIL图像
-    image = Image.fromarray(image_np, mode='RGB')
-    return image
+        # 创建PIL图像
+        image = Image.fromarray(image_np, mode='RGB')
+        return image
 
     def generate_content(self, prompt, model_name, stream, api_key, image=None):
         if api_key:
