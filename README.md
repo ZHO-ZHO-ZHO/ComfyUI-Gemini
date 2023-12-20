@@ -1,9 +1,8 @@
 # Gemini in ComfyUI
 
-![Dingtalk_20231220192932](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/db4f4bf6-a0cf-42af-ac5a-7e2afd1bda93)
 
 
-
+![Dingtalk_20231220204257](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/07c68b08-858b-4233-a48b-1069552fc8d8)
 
 
 
@@ -87,6 +86,8 @@
 ![Dingtalk_20231220183708](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/7f0e222a-2de4-4c5b-883a-2172667d1d5b)
 
 [Genimi-pro-vision【Zho】](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/blob/main/Gemini_workflows/Gemini-pro-vision%E3%80%90Zho%E3%80%91.json)
+
+![Dingtalk_20231220192932](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/db4f4bf6-a0cf-42af-ac5a-7e2afd1bda93)
 
 ![Dingtalk_20231220190218](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/5bb57f7b-f00f-454a-9435-c1b8a02ae71a)
 
