@@ -4,7 +4,7 @@ import torch
 import google.generativeai as genai
 from io import BytesIO
 from PIL import Image
-from Gemini_API_Key import get_gemini_api_key 
+from .Gemini_API_Key import get_gemini_api_key 
 
 class Gemini_API_Zho:
 
