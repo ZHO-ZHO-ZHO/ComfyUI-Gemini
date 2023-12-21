@@ -184,7 +184,7 @@ class Gemini_API_Chat_Zho:
         
         chat_history = self.format_chat_history(chat)
     
-    return (chat_history, textoutput)
+        return (chat_history, textoutput)
 
     def format_chat_history(self, chat):
         formatted_history = []
