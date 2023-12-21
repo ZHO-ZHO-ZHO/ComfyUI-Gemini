@@ -194,11 +194,6 @@ class Gemini_API_Chat_Zho:
         return "\n".join(formatted_history)
 
 
-
-
-
-
-
 class Gemini_API_S_Zho:
 
     def __init__(self):
@@ -315,6 +310,53 @@ class Gemini_API_S_Vsion_ImgURL_Zho:
         return (textoutput,)
 
 
+#chat
+class Gemini_API_S_Chat_Zho:
+
+    def __init__(self):
+        self.api_key = get_gemini_api_key()
+        self.chat = None  # 初始化时，聊天实例为空
+        if self.api_key is not None:
+            genai.configure(api_key=self.api_key)
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "prompt": ("STRING", {"default": "What is the meaning of life?", "multiline": True}),
+                "model_name": (["gemini-pro"],),
+            }
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("response",)
+    FUNCTION = "generate_chat"
+
+    CATEGORY = "Zho模块组/✨Gemini"
+    
+    def generate_chat(self, prompt, model_name):
+        if not self.api_key:
+            raise ValueError("API key is required")
+
+        if not self.chat:
+            model = genai.GenerativeModel(model_name)
+            self.chat = model.start_chat(history=[])
+
+        response = self.chat.send_message(prompt)
+        textoutput = response.text
+        chat_history = self.format_chat_history(self.chat)
+        
+        return (chat_history,)
+
+    def format_chat_history(self, chat):
+        formatted_history = []
+        for message in chat.history:
+            formatted_message = f"{message.role}: {message.parts[0].text}"
+            formatted_history.append(formatted_message)
+            formatted_history.append("-" * 40)  # 添加分隔线
+        return "\n".join(formatted_history)
+
+
 class ConcatText_Zho:
 
     def __init__(self):
@@ -376,6 +418,7 @@ NODE_CLASS_MAPPINGS = {
     "Gemini_API_Chat_Zho": Gemini_API_Chat_Zho,
     "Gemini_API_S_Zho": Gemini_API_S_Zho,
     "Gemini_API_S_Vsion_ImgURL_Zho": Gemini_API_S_Vsion_ImgURL_Zho,
+    "Gemini_API_S_Chat_Zho": Gemini_API_S_Chat_Zho,
     "ConcatText_Zho": ConcatText_Zho,
     "DisplayText_Zho": DisplayText_Zho
 }
@@ -386,6 +429,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "Gemini_API_Chat_Zho": "💬Gemini_API_Chat_Zho",
     "Gemini_API_S_Zho": "㊙️Gemini_Zho",
     "Gemini_API_S_Vsion_ImgURL_Zho": "㊙️Gemini_Vsion_ImgURL_Zho",
+    "Gemini_API_S_Chat_Zho": "💬Gemini_Chat_Zho",
     "ConcatText_Zho": "✨ConcatText_Zho",
     "DisplayText_Zho": "✨DisplayText_Zho"
 }
