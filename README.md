@@ -67,9 +67,9 @@
 - 使用注意：本地使用请确保你可以有效连接到 Google Gemini 的服务，推荐使用 Colab 或 Kaggle（无连接问题）
 
 ## 安装 | Install
-<!---
+
 - 推荐使用管理器 ComfyUI Manager 安装
---->
+
 - 手动安装：
     1. `cd custom_nodes`
     2. `git clone https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini.git`
@@ -97,6 +97,8 @@
 20231221
 
 - V1.1版：修改 API KEY 的加载方式为自动添加 config.json ，将 API KEY 写入即可
+  
+- 已登陆 manager 不用手动安装了
 
 20231220
 
