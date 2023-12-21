@@ -157,6 +157,7 @@ class Gemini_API_Chat_Zho:
             "required": {
                 "prompt": ("STRING", {"default": "What is the meaning of life?", "multiline": True}),
                 "model_name": (["gemini-pro"],),
+                "stream": ("BOOLEAN", {"default": False}),
                 "api_key": ("STRING", {"default": ""})  # Add api_key as an input
             }
         }
@@ -167,7 +168,7 @@ class Gemini_API_Chat_Zho:
 
     CATEGORY = "Zho模块组/✨Gemini"
 
-    def generate_chat(self, prompt, model_name, api_key):
+    def generate_chat(self, prompt, model_name, stream, api_key):
         if api_key:
             self.api_key = api_key
             genai.configure(api_key=self.api_key)
@@ -177,19 +178,18 @@ class Gemini_API_Chat_Zho:
         model = genai.GenerativeModel(model_name)
         chat = model.start_chat(history=[])
 
-        response = chat.send_message(prompt, stream=True)
-        textoutput = self.format_stream_response(response)
-
+        # 发送初始消息并更新历史
+        chat.send_message(prompt)
         chat_history = self.format_chat_history(chat)
-        
-        return (textoutput, chat_history)
 
-    def format_stream_response(self, response):
-        formatted_response = []
-        for chunk in response:
-            formatted_response.append(chunk.text)
-            formatted_response.append("_" * 80)  # Optional: For visual separation
-        return "\n".join(formatted_response)
+        # 如果启用流式模式，处理流式回应
+        if stream:
+            response = chat.send_message(prompt, stream=True)
+            for chunk in response:
+                chat.send_message(chunk.text)  # 将流式响应的每一部分发送到聊天中
+            chat_history = self.format_chat_history(chat)  # 更新聊天历史
+
+        return (chat_history,)
 
     def format_chat_history(self, chat):
         formatted_history = []
