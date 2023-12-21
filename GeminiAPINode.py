@@ -161,8 +161,8 @@ class Gemini_API_Chat_Zho:
             }
         }
 
-    RETURN_TYPES = ("STRING", "STRING",)
-    RETURN_NAMES = ("chat history", "response",)
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("response",)
     FUNCTION = "generate_chat"
 
     CATEGORY = "Zho模块组/✨Gemini"
@@ -182,16 +182,17 @@ class Gemini_API_Chat_Zho:
             
         chat.history
         
-        chat_history = self.format_chat_history(chat)
+#        chat_history = self.format_chat_history(chat)
+        chatoutput = chat.history
     
-        return (chat_history, textoutput)
+        return (chatoutput,)
 
-    def format_chat_history(self, chat):
-        formatted_history = []
-        for message in chat.history:
-            formatted_message = f"{message.role}: {message.parts[0].text}"
-            formatted_history.append(formatted_message)
-        return "\n".join(formatted_history)
+#    def format_chat_history(self, chat):
+#        formatted_history = []
+#        for message in chat.history:
+#            formatted_message = f"{message.role}: {message.parts[0].text}"
+#            formatted_history.append(formatted_message)
+#        return "\n".join(formatted_history)
 
 
 
