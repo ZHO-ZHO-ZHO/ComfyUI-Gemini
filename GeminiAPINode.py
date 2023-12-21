@@ -162,8 +162,8 @@ class Gemini_API_Chat_Zho:
             }
         }
 
-    RETURN_TYPES = ("STRING", "STRING",)
-    RETURN_NAMES = ("response", "chat history",)
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("response",)
     FUNCTION = "generate_chat"
 
     CATEGORY = "Zho模块组/✨Gemini"
