@@ -13,7 +13,7 @@
 
 - 目前 Gemini API 免费开放，你可以在这里申请一个自己的 API Key：[Gemini API 申请](https://makersuite.google.com/app/apikey)
 
-- 版本：V1.1
+- 版本：V2.0 新增上下文聊天节点（相当于聊天机器人）💬
 
 ## 详细说明 | Features
 
@@ -30,12 +30,16 @@
        ㊙️Gemini_Zho：同时支持两种模型，其中 Genimi-pro-vision 可接受图像作为输入
      
        ㊙️Gemini_Vsion_ImgURL_Zho：Genimi-pro-vision 模型，接受图像链接作为输入
+     
+       💬Gemini_Chat_Zho：Genimi-pro 模型，支持上下文窗口，聊天机器人（Genimi-pro-vision 本身还未支持上下文功能）
 
    - 显式API KEY：直接在节点中输入 Gemini_API_Key，仅供个人私密使用，请勿将包含 API KEY 的工作流分享出去
      
        ✨Gemini_API_Zho：同时支持两种模型，其中 Genimi-pro-vision 可接受图像作为输入
   
        ✨Gemini_API_Vsion_ImgURL_Zho：Genimi-pro-vision 模型，接受图像链接作为输入
+     
+       💬Gemini_API_Chat_Zho：：Genimi-pro 模型，支持上下文窗口，聊天机器人（Genimi-pro-vision 本身还未支持上下文功能）
 
 - 辅助节点:
 
@@ -46,6 +50,11 @@
 - 节点示例：
 
 ![Dingtalk_20231220180446](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/3cba8d69-09bb-470c-940c-7f796c869d63)
+
+聊天机器人
+
+![image](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/8a38f437-0148-4777-b872-e88995dd53d2)
+
 
 ## 参数说明 | Parameters
 
@@ -78,6 +87,12 @@
 
 ## 工作流 | Workflow
 
+### V2.0 工作流（隐式）（V1.1工作流依旧可用）
+
+[Gemini-pro Chatbot【Zho】](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/blob/main/Gemini_workflows/Gemini-pro%20Chatbot%E3%80%90Zho%E3%80%91.json)
+
+![image](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/8a38f437-0148-4777-b872-e88995dd53d2)
+
 ### V1.1 工作流（隐式）
 
 [Gemini-pro【Zho】](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/blob/main/Gemini_workflows/Gemini-pro%E3%80%90Zho%E3%80%91.json) 
@@ -92,6 +107,12 @@
 
 
 ## 更新日志 | Changelog
+
+20231222
+
+- V2.0版：新增上下文聊天节点，相当于聊天机器人
+    - 💬Gemini_Chat_Zho（隐式）
+    - 💬Gemini_API_Chat_Zho（显示）
 
 20231221
 
