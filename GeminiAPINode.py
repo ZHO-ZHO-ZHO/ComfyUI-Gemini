@@ -148,6 +148,7 @@ class Gemini_API_Chat_Zho:
 
     def __init__(self, api_key=None):
         self.api_key = api_key
+        self.chat = None  # 初始化时，聊天实例为空
         if self.api_key is not None:
             genai.configure(api_key=self.api_key)
 
