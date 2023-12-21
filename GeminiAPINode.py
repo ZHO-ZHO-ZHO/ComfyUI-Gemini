@@ -167,14 +167,6 @@ class Gemini_API_Chat_Zho:
 
     CATEGORY = "Zho模块组/✨Gemini"
     
-    def format_chat_history(self, chat):
-        formatted_history = []
-        for message in chat.history:
-            # 假设每个消息都有一个角色和文本部分
-            formatted_message = f"{message.role}: {message.parts[0].text}"
-            formatted_history.append(formatted_message)
-        return formatted_history
-        
     def generate_chat(self, prompt, model_name, api_key):
         if api_key:
             self.api_key = api_key
@@ -182,15 +174,22 @@ class Gemini_API_Chat_Zho:
         if not self.api_key:
             raise ValueError("API key is required")
 
-        model = genai.GenerativeModel(model_name)
-        chat = model.start_chat(history=[])
+        if not self.chat:
+            model = genai.GenerativeModel(model_name)
+            self.chat = model.start_chat(history=[])
 
-        response = chat.send_message(prompt)
+        response = self.chat.send_message(prompt)
         textoutput = response.text
-            
-        chat_history_formatted = self.format_chat_history(chat)
-    
-        return (chat_history_formatted,)
+        chat_history = self.format_chat_history(self.chat)
+        
+        return (chat_history,)
+
+    def format_chat_history(self, chat):
+        formatted_history = []
+        for message in chat.history:
+            formatted_message = f"{message.role}: {message.parts[0].text}"
+            formatted_history.append(formatted_message)
+        return "\n".join(formatted_history)
 
 
 
