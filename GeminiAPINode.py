@@ -190,6 +190,7 @@ class Gemini_API_Chat_Zho:
         for message in chat.history:
             formatted_message = f"{message.role}: {message.parts[0].text}"
             formatted_history.append(formatted_message)
+            formatted_history.append("-" * 40)  # 添加分隔线
         return "\n".join(formatted_history)
 
 
