@@ -6,6 +6,11 @@
 
 
 
+V2.0 聊天机器人节点
+
+https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/cb64ee29-a983-47fd-b26b-55386314afdd
+
+
 
 ## 项目介绍 | Info
 
