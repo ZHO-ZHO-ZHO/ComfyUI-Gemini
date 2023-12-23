@@ -1,5 +1,13 @@
-# Gemini in ComfyUI
+<p align="center"><img  src="https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/ec15bc39-8111-417b-afc5-67cdfb3a9df5" alt="Gemini项目图" /></p>
 
+<!---
+![Gemini项目图](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/ec15bc39-8111-417b-afc5-67cdfb3a9df5)
+--->
+
+<h1 align="center">Gemini in ComfyUI</h1>
+<!---
+# Gemini in ComfyUI
+--->
 
 
 ![Dingtalk_20231220204257](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/07c68b08-858b-4233-a48b-1069552fc8d8)
