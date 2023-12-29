@@ -26,7 +26,7 @@ https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/cb64ee29-a983-47f
 
 - 目前 Gemini API 免费开放，你可以在这里申请一个自己的 API Key：[Gemini API 申请](https://makersuite.google.com/app/apikey)
 
-- 版本：V2.0 新增上下文聊天节点（相当于聊天机器人）💬
+- 版本：V2.1 新增上下文聊天节点（相当于聊天机器人）💬 ，修复 Deadline of 60.0s bug
 
 ## 详细说明 | Features
 
@@ -120,6 +120,10 @@ https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/cb64ee29-a983-47f
 
 
 ## 更新日志 | Changelog
+
+20231229
+
+- V2.1版：修复 Deadline of 60.0s bug，方法来自官方：https://github.com/google/generative-ai-python/issues/117
 
 20231222
 
