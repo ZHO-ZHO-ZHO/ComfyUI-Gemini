@@ -19,6 +19,12 @@ V2.0 聊天机器人节点
 https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/cb64ee29-a983-47fd-b26b-55386314afdd
 
 
+将 Gemini pro vision 用于批量打标
+
+
+https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/00addc94-1587-40d6-83f4-6b47dc1db665
+
+
 
 ## 项目介绍 | Info
 
