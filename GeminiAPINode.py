@@ -25,7 +25,7 @@ class Gemini_API_Zho:
     def __init__(self, api_key=None):
         self.api_key = api_key
         if self.api_key is not None:
-            genai.configure(api_key=self.api_key)
+            genai.configure(api_key=self.api_key,transport='rest')
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -62,7 +62,7 @@ class Gemini_API_Zho:
     def generate_content(self, prompt, model_name, stream, api_key, image=None):
         if api_key:
             self.api_key = api_key
-            genai.configure(api_key=self.api_key)
+            genai.configure(api_key=self.api_key,transport='rest')
         if not self.api_key:
             raise ValueError("API key is required")
 
@@ -99,7 +99,7 @@ class Gemini_API_Vsion_ImgURL_Zho:
     def __init__(self, api_key=None):
         self.api_key = api_key
         if self.api_key is not None:
-            genai.configure(api_key=self.api_key)
+            genai.configure(api_key=self.api_key,transport='rest')
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -122,7 +122,7 @@ class Gemini_API_Vsion_ImgURL_Zho:
     def generate_content(self, prompt, model_name, stream, api_key, image_url):
         if api_key:
             self.api_key = api_key
-            genai.configure(api_key=self.api_key)
+            genai.configure(api_key=self.api_key,transport='rest')
         if not self.api_key:
             raise ValueError("API key is required")
 
@@ -150,7 +150,7 @@ class Gemini_API_Chat_Zho:
         self.api_key = api_key
         self.chat = None  # 初始化时，聊天实例为空
         if self.api_key is not None:
-            genai.configure(api_key=self.api_key)
+            genai.configure(api_key=self.api_key,transport='rest')
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -171,7 +171,7 @@ class Gemini_API_Chat_Zho:
     def generate_chat(self, prompt, model_name, api_key):
         if api_key:
             self.api_key = api_key
-            genai.configure(api_key=self.api_key)
+            genai.configure(api_key=self.api_key,transport='rest')
         if not self.api_key:
             raise ValueError("API key is required")
 
@@ -199,7 +199,7 @@ class Gemini_API_S_Zho:
     def __init__(self):
         self.api_key = get_gemini_api_key()
         if self.api_key is not None:
-            genai.configure(api_key=self.api_key)
+            genai.configure(api_key=self.api_key,transport='rest')
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -269,7 +269,7 @@ class Gemini_API_S_Vsion_ImgURL_Zho:
     def __init__(self):
         self.api_key = get_gemini_api_key()
         if self.api_key is not None:
-            genai.configure(api_key=self.api_key)
+            genai.configure(api_key=self.api_key,transport='rest')
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -317,7 +317,7 @@ class Gemini_API_S_Chat_Zho:
         self.api_key = get_gemini_api_key()
         self.chat = None  # 初始化时，聊天实例为空
         if self.api_key is not None:
-            genai.configure(api_key=self.api_key)
+            genai.configure(api_key=self.api_key,transport='rest')
 
     @classmethod
     def INPUT_TYPES(cls):
