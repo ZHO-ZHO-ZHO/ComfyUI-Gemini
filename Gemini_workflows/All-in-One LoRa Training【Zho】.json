@@ -1,0 +1,1023 @@
+{
+  "last_node_id": 32,
+  "last_link_id": 42,
+  "nodes": [
+    {
+      "id": 9,
+      "type": "ImageScale",
+      "pos": [
+        -40,
+        3150
+      ],
+      "size": {
+        "0": 272.1335754394531,
+        "1": 130
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 22,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            23
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        512,
+        512,
+        "center"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "Gemini_API_S_Zho",
+      "pos": [
+        520,
+        3280
+      ],
+      "size": {
+        "0": 260,
+        "1": 102
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "slot_index": 0
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 19,
+          "widget": {
+            "name": "prompt"
+          },
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Gemini_API_S_Zho"
+      },
+      "widgets_values": [
+        "Use concise phrases to describe the image, separated by commas, avoiding complete sentences. Provide an overview of key elements such as subject, colors, lighting, composition, details and texture, artistic techniques, style, brushwork, and camera use (if applicable). Ensure a quick and thorough understanding of the visual content",
+        "gemini-pro",
+        false
+      ]
+    },
+    {
+      "id": 4,
+      "type": "Gemini_API_S_Zho",
+      "pos": [
+        250,
+        3150
+      ],
+      "size": {
+        "0": 250,
+        "1": 220
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 23,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            7
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Gemini_API_S_Zho"
+      },
+      "widgets_values": [
+        "Use concise phrases to describe the image, separated by commas, avoiding complete sentences. Provide an overview of key elements such as subject, colors, lighting, composition, details and texture, artistic techniques, style, brushwork, and camera use (if applicable). Ensure a quick and thorough understanding of the visual content",
+        "gemini-pro-vision",
+        false
+      ]
+    },
+    {
+      "id": 6,
+      "type": "LoadImage",
+      "pos": [
+        -390,
+        3150
+      ],
+      "size": {
+        "0": 330,
+        "1": 490
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "COMBO",
+          "link": 29,
+          "widget": {
+            "name": "image"
+          },
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "M1_00026_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "DisplayText_Zho",
+      "pos": [
+        520,
+        3430
+      ],
+      "size": {
+        "0": 260,
+        "1": 90
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 18,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            30
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayText_Zho"
+      },
+      "widgets_values": [
+        "",
+        "cubism, painting, cat, blue, yellow, brown, black, white, sharp angles, lines, textured background"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "SaveImage",
+      "pos": [
+        -40,
+        3330
+      ],
+      "size": {
+        "0": 270,
+        "1": 310
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "LoraTest/1_TTTEST/T1"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "VAEDecode",
+      "pos": [
+        720,
+        3720
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 40
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 41,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            42
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 25,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -390,
+        3720
+      ],
+      "size": {
+        "0": 330,
+        "1": 100
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 2,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            32
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            33
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            41
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "v1-5-pruned-emaonly.safetensors"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "PreviewImage",
+      "pos": [
+        720,
+        3810
+      ],
+      "size": {
+        "0": 370,
+        "1": 370
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 42
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 7,
+      "type": "DisplayText_Zho",
+      "pos": [
+        250,
+        3420
+      ],
+      "size": {
+        "0": 250,
+        "1": 220
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 7,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DisplayText_Zho"
+      },
+      "widgets_values": [
+        "",
+        "A cubism-style painting of a cat, with a blue and yellow background, the cat is brown, black, and white, with sharp angles and lines, and a textured background."
+      ]
+    },
+    {
+      "id": 24,
+      "type": "ConcatText_Zho",
+      "pos": [
+        520,
+        3560
+      ],
+      "size": {
+        "0": 260,
+        "1": 80
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_2",
+          "type": "STRING",
+          "link": 30,
+          "widget": {
+            "name": "text_2"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            31
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConcatText_Zho"
+      },
+      "widgets_values": [
+        "AlbertGleizesCat",
+        ""
+      ]
+    },
+    {
+      "id": 29,
+      "type": "CLIPTextEncode",
+      "pos": [
+        190,
+        3880
+      ],
+      "size": [
+        210,
+        90
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            38
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "bad"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "CLIPTextEncode",
+      "pos": [
+        190,
+        3720
+      ],
+      "size": [
+        210,
+        110
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            36
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "AlbertGleizesCat"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -390,
+        3870
+      ],
+      "size": {
+        "0": 330,
+        "1": 110
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 2,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            39
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 23,
+      "type": "PrimitiveNode",
+      "pos": [
+        -620,
+        3150
+      ],
+      "size": {
+        "0": 210,
+        "1": 106
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "COMBO",
+          "type": "COMBO",
+          "links": [
+            29
+          ],
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "title": "image",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "M1_00026_.png",
+        "fixed",
+        ""
+      ]
+    },
+    {
+      "id": 27,
+      "type": "KSampler",
+      "pos": [
+        420,
+        3720
+      ],
+      "size": {
+        "0": 280,
+        "1": 262
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 34
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 36
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 38
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 39,
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            40
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        301423747180792,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 26,
+      "type": "LoraLoader",
+      "pos": [
+        -40,
+        3720
+      ],
+      "size": {
+        "0": 210,
+        "1": 130
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 32
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            34
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            35,
+            37
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "TEST-1.safetensors",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 20,
+      "type": "Save Text File_mne",
+      "pos": [
+        800,
+        3150
+      ],
+      "size": {
+        "0": 290,
+        "1": 174
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 31,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Save Text File_mne"
+      },
+      "widgets_values": [
+        "",
+        "./output/LoraTest/1_TTTEST",
+        "T1",
+        "_",
+        5,
+        "false"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "ConcatText_Zho",
+      "pos": [
+        520,
+        3150
+      ],
+      "size": {
+        "0": 260,
+        "1": 80
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_2",
+          "type": "STRING",
+          "link": 17,
+          "widget": {
+            "name": "text_2"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            19
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConcatText_Zho"
+      },
+      "widgets_values": [
+        "Transform the following text into tags, separated by commas：",
+        ""
+      ]
+    },
+    {
+      "id": 1,
+      "type": "Lora Training in ComfyUI",
+      "pos": [
+        800,
+        3370
+      ],
+      "size": {
+        "0": 290,
+        "1": 270
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 2,
+      "properties": {
+        "Node name for S&R": "Lora Training in ComfyUI"
+      },
+      "widgets_values": [
+        "v1-5-pruned-emaonly.safetensors",
+        "./output/LoraTest",
+        1,
+        40,
+        10,
+        "TEST-1",
+        1,
+        "models/loras"
+      ]
+    }
+  ],
+  "links": [
+    [
+      7,
+      4,
+      0,
+      7,
+      0,
+      "STRING"
+    ],
+    [
+      10,
+      9,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      7,
+      0,
+      16,
+      0,
+      "STRING"
+    ],
+    [
+      18,
+      17,
+      0,
+      18,
+      0,
+      "STRING"
+    ],
+    [
+      19,
+      16,
+      0,
+      17,
+      1,
+      "STRING"
+    ],
+    [
+      22,
+      6,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      9,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      23,
+      0,
+      6,
+      0,
+      "COMBO"
+    ],
+    [
+      30,
+      18,
+      0,
+      24,
+      0,
+      "STRING"
+    ],
+    [
+      31,
+      24,
+      0,
+      20,
+      0,
+      "STRING"
+    ],
+    [
+      32,
+      25,
+      0,
+      26,
+      0,
+      "MODEL"
+    ],
+    [
+      33,
+      25,
+      1,
+      26,
+      1,
+      "CLIP"
+    ],
+    [
+      34,
+      26,
+      0,
+      27,
+      0,
+      "MODEL"
+    ],
+    [
+      35,
+      26,
+      1,
+      28,
+      0,
+      "CLIP"
+    ],
+    [
+      36,
+      28,
+      0,
+      27,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      37,
+      26,
+      1,
+      29,
+      0,
+      "CLIP"
+    ],
+    [
+      38,
+      29,
+      0,
+      27,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      39,
+      30,
+      0,
+      27,
+      3,
+      "LATENT"
+    ],
+    [
+      40,
+      27,
+      0,
+      31,
+      0,
+      "LATENT"
+    ],
+    [
+      41,
+      25,
+      2,
+      31,
+      1,
+      "VAE"
+    ],
+    [
+      42,
+      31,
+      0,
+      32,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
