@@ -13,6 +13,10 @@
 ![Dingtalk_20231220204257](https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/07c68b08-858b-4233-a48b-1069552fc8d8)
 
 
+All-in-One LoRa Training 预处理、自动打标、训练、测试 LoRA 一条龙工作流
+
+https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini/assets/140084057/d461f656-6888-48a8-b4f8-b70b7e46504d
+
 
 V2.0 聊天机器人节点
 
