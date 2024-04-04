@@ -1,6 +1,6 @@
 
-import { app } from "/scripts/app.js";
-import { ComfyWidgets } from "/scripts/widgets.js";
+import { app } from "../../scripts/app.js";
+import { ComfyWidgets } from "../../scripts/widgets.js";
 
 app.registerExtension({
   name: "Comfy.GeminiAPINode",
