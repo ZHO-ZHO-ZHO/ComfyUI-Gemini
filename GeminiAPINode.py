@@ -643,13 +643,12 @@ class Gemini_File_API_S_Zho:
 
         model = genai.GenerativeModel(model_name)
 
-        if image == None:
-            if stream:
-                response = model.generate_content([prompt, file], stream=True)
-                textoutput = "\n".join([chunk.text for chunk in response])
-            else:
-                response = model.generate_content([prompt, file])
-                textoutput = response.text
+        if stream:
+            response = model.generate_content([prompt, file], stream=True)
+            textoutput = "\n".join([chunk.text for chunk in response])
+        else:
+            response = model.generate_content([prompt, file])
+            textoutput = response.text
 
         return (textoutput,)
 
