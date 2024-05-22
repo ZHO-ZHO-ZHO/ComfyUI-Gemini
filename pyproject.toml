@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-gemini"
+description = "Using Gemini-pro & Gemini-pro-vision in ComfyUI."
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["google-generativeai>0.4.1"]
+
+[project.urls]
+Repository = "https://github.com/ZHO-ZHO-ZHO/ComfyUI-Gemini"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-Gemini"
+Icon = ""
